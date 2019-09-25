@@ -6,6 +6,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+import PrivateRoute from './guard/auth'
 import Home from './pages/Home'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
@@ -18,7 +19,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/about" component={About} />
+        <PrivateRoute path="/about" component={About} />
         <Route path="/register" component={Register} />
         <Route path="/shop/:id" component={Shop} />
         <Route component={NotFound} />

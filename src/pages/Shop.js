@@ -20,7 +20,7 @@ export default class Shop extends Component {
             const response = await axios.get('https://shop-backendapi.herokuapp.com/api/shop/' + id, {
                 cancelToken: this.source.token
             });
-            console.log(response.data.data)
+            //console.log(response.data.data)
             this.setState({
                 shop: response.data.data,
                 location: response.data.data.location,
