@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
 import Login from './Login'
@@ -10,7 +11,7 @@ import { faUtensils } from '@fortawesome/free-solid-svg-icons'
 //<i class="fas fa-utensils"></i>
 const element = <FontAwesomeIcon icon={faUtensils} />
 
-export default class Navbar extends Component {
+class Navbar extends Component {
 
     render() {
         return (
@@ -32,6 +33,9 @@ export default class Navbar extends Component {
                             <li className="nav-item">
                                 <NavLink to="/register" className="nav-link">Register <span className="sr-only">(current)</span></NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink to="/cart" className="nav-link">Cart <span class="badge badge-light">{this.props.total}</span></NavLink>
+                            </li>
                         </ul>
                         <Login />
                     </div>
@@ -42,3 +46,13 @@ export default class Navbar extends Component {
         )
     }
 }
+
+
+const mapStatetoProps = (state) => {
+    return {
+        cart: state.cartReducer.cart,
+        total: state.cartReducer.total
+    }
+}
+
+export default connect(mapStatetoProps)(Navbar)
