@@ -1,0 +1,43 @@
+import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
+
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUtensils } from '@fortawesome/free-solid-svg-icons'
+
+//<i class="fas fa-utensils"></i>
+const element = <FontAwesomeIcon icon={faUtensils} />
+
+export default class Navbar extends Component {
+    
+    render() {
+        return (
+            <div>
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <NavLink className="navbar-brand" to="/">{element} Food Shop</NavLink>
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon" />
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav mr-auto">
+                            <li className="nav-item active">
+                                <NavLink exact={true} to="/" className="nav-link">Home <span className="sr-only">(current)</span></NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/about" className="nav-link">About <span className="sr-only">(current)</span></NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/register" className="nav-link">Register <span className="sr-only">(current)</span></NavLink>
+                            </li>
+                        </ul>
+                        <span className="navbar-text">
+                            สวัสดีคุณ ธีระศักดิ์
+                        </span>
+                    </div>
+
+                </nav>
+            </div>
+
+        )
+    }
+}
