@@ -33,13 +33,13 @@ const Shop = ({ shop }) => {
                     <div className="row">
                         {shop.map((data, index) => (
 
-                            <div className="col-md-4" key={index}>
+                            <div className="col-md-3" key={index}>
                                 <div className="card mb-4 shadow-sm">
-                                    <img src={data.photo} className="rounded" alt="..." width="100%" height="225" />
+                                    <img src={data.photo} className="rounded" alt="..." width="100%" height="175" />
                                     <div className="card-body">
-                                        <h5 className="card-title">{data.name}</h5>
+                                        <h6 className="card-title">{data.name}</h6>
 
-                                        <Link className="btn btn-success" to={{ pathname: '/shop/' + data.id }} >
+                                        <Link className="btn btn-warning btn-sm" to={{ pathname: '/shop/' + data.id }} >
                                             View Munu
                                         </Link>
                                         {/*
@@ -56,5 +56,6 @@ const Shop = ({ shop }) => {
         </div>
     )
 };
+
 
 export default Shop

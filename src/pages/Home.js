@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import Jumbotron from 'react-bootstrap/Jumbotron'
+import Button from 'react-bootstrap/Button'  //Button
+
 
 import Shop from '../components/Shop';
 
@@ -43,8 +46,21 @@ export default class Home extends Component {
     render() {
         return (
             <div>
+                <Jumbotron>
+                    <div className="container">
+                        <h1>สั่งอาหารเดลิเวอรี่จากร้านใกล้บ้านคุณ สั่งเลย!</h1>
+                        <p>
+                        อิ่มอร่อยกับอาหารมากมายใกล้บ้านคุณ จากร้านที่ดีที่สุด
+                    </p>
+                        <p>
+                            <Button variant="primary">เลือกสินค้าเลย</Button>
+                        </p>
+                    </div>
 
-                <div className="container my-5">
+
+                </Jumbotron>
+
+                <div className="container">
                     <div className="row">
                         <div className="col-md-12">
                             <Shop shop={this.state.shops} />
@@ -54,5 +70,12 @@ export default class Home extends Component {
 
             </div>
         )
+    }
+}
+
+
+const styles = {
+    bottom: {
+        backgroundcolor: '#fc3600'
     }
 }

@@ -5,7 +5,7 @@ const Footer = () => {
         <>
             <div className="container">
                 <hr />
-                <p >Footer &copy; {new Date().getFullYear()}</p>
+                <p >Food Tiger &copy; {new Date().getFullYear()}</p>
             </div>
 
         </>

@@ -3,6 +3,13 @@ import React, { Component } from 'react'
 import { Formik, Form, Field } from "formik";
 import axios from 'axios';
 //import { json } from 'body-parser';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import '../style/style.scss';
+
+library.add(fab, fas);
 
 export default class Login extends Component {
 
@@ -66,15 +73,9 @@ export default class Login extends Component {
             <>
                 {
                     this.state.isLogin ? (
-                        <span className="navbar-text">
-                            Welcome {this.state.profile.name}
-                            <button
-                                type="submit"
-                                className="btn btn-outline-light ml-1 my-2 my-sm-0 btn-sm"
-                                onClick={this.logout}
-                            >
-                                Logout
-                            </button>
+                        <span className="navbar-text text-welcome">
+                            ยินดีต้อนรับ คุณ {this.state.profile.name}
+                            <a href="/" onClick={this.logout}><FontAwesomeIcon icon={['fas', 'sign-out-alt']}  className="ml-2 text-logout" /></a>
                         </span>
                     ) : (
                             <Formik
@@ -98,15 +99,13 @@ export default class Login extends Component {
                                         isSubmitting
                                     }) => (
                                             <Form className="form-inline">
-
-
                                                 <div className="form-group">
                                                     <Field
                                                         type="email"
                                                         name="email"
                                                         placeholder="Email"
                                                         autoComplete="username"
-                                                        className="form-control-sm mr-2"
+                                                        className="form-control form-control-sm mr-sm-2"
                                                     />
                                                 </div>
 
@@ -116,19 +115,17 @@ export default class Login extends Component {
                                                         name="password"
                                                         placeholder="Password"
                                                         autoComplete="new-password"
-                                                        className="form-control-sm mr-2"
+                                                        className="form-control form-control-sm mr-sm-2"
                                                     />
                                                 </div>
 
                                                 <button
                                                     type="submit"
-                                                    className="btn btn-outline-success my-2 my-sm-0 btn-sm"
+                                                    className="btn  btn-sm my-2 my-sm-0"
                                                     disabled={isSubmitting}
                                                 >
                                                     Log In
-                                                </button>
-
-
+                                        </button>
                                             </Form>
                                         )
 
